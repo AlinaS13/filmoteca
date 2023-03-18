@@ -3,16 +3,25 @@ import { useParams } from 'react-router-dom';
 import api from '../../api/api';
 
 export default function Reviews() {
-  const [reviews, seReviews] = useState([]);
   const { movieId } = useParams();
+  const [reviews, setReviews] = useState(
+    JSON.parse(localStorage.getItem(`reviews-${movieId}`)) ?? []
+  );
 
   useEffect(() => {
     const fetchReviews = async () => {
       const result = await api.getMoviesReviews(movieId);
-      seReviews(result.data.results);
+      setReviews(result.data.results);
       console.log(result.data.results);
+      localStorage.setItem(
+        `reviews-${movieId}`,
+        JSON.stringify(result.data.results)
+      );
     };
-    fetchReviews(movieId);
+    if (!localStorage.getItem(`reviews-${movieId}`)) {
+      fetchReviews(movieId);
+    }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

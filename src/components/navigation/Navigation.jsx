@@ -1,10 +1,10 @@
-import { NavLink } from 'react-router-dom';
+import { NavBar, StyleLink } from './Navigation.styled';
 
 export const Navigaion = () => {
   return (
-    <header className="">
-      <NavLink to="/">Home</NavLink>
-      <NavLink to="/movies">Movies</NavLink>
-    </header>
+    <NavBar className="">
+      <StyleLink to="/">Home</StyleLink>
+      <StyleLink to="/movies">Movies</StyleLink>
+    </NavBar>
   );
 };

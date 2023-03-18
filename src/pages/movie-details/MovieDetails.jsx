@@ -1,10 +1,13 @@
+import { Container } from 'pages/home/Home.styled';
 import { useEffect, useState } from 'react';
 import { useLocation, Link, useParams, Outlet } from 'react-router-dom';
-import api from '../api/api';
+import api from '../../api/api';
 
 export default function MovieDetails() {
-  const [movie, setMovie] = useState([]);
   const { movieId } = useParams();
+  const [movie, setMovie] = useState(
+    JSON.parse(localStorage.getItem(`movie-${movieId}`)) ?? []
+  );
   const location = useLocation();
   const goBackBtn = location.state?.from ?? '/';
 
@@ -13,15 +16,18 @@ export default function MovieDetails() {
       const result = await api.getMoviesDetails(movieId);
       setMovie(result.data);
       console.log(result.data);
+      localStorage.setItem(`movie-${movieId}`, JSON.stringify(result.data));
     };
     if (movieId) {
-      fetchMovie();
+      if (!localStorage.getItem(`movie-${movieId}`)) {
+        fetchMovie();
+      }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-    <div>
+    <Container>
       <button type="button">
         <Link to={goBackBtn}>Go Back</Link>
       </button>
@@ -55,6 +61,6 @@ export default function MovieDetails() {
         <Link to={`/movies/${movieId}/reviews`}>Review</Link>
       </div>
       <Outlet />
-    </div>
+    </Container>
   );
 }

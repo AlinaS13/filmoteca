@@ -2,9 +2,9 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import { lazy } from 'react';
 import Layout from './components/layout/Layout';
 
-const Home = lazy(() => import('./pages/Home'));
-const Movies = lazy(() => import('./pages/Movies'));
-const MovieDetails = lazy(() => import('./pages/MovieDetails'));
+const Home = lazy(() => import('./pages/home/Home'));
+const Movies = lazy(() => import('./pages/movies/Movies'));
+const MovieDetails = lazy(() => import('./pages/movie-details/MovieDetails'));
 const Cast = lazy(() => import('./components/cast/Cast'));
 const Reviews = lazy(() => import('./components/reviews/Reviews'));
 
