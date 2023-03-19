@@ -21,7 +21,7 @@ export default function Home() {
     const fetchMovies = async () => {
       const result = await api.getMoviesDay();
       setMoviesDay(result.data.results);
-      console.log(result.data.results);
+      // console.log(result.data.results);
       localStorage.setItem('movies-day', JSON.stringify(result.data.results));
     };
     if (!localStorage.getItem('movies-day')) {

@@ -26,7 +26,7 @@ export default function MovieDetails() {
     const fetchMovie = async () => {
       const result = await api.getMoviesDetails(movieId);
       setMovie(result.data);
-      console.log(result.data);
+      // console.log(result.data);
       localStorage.setItem(`movie-${movieId}`, JSON.stringify(result.data));
     };
     if (movieId) {

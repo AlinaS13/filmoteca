@@ -13,7 +13,7 @@ export default function Reviews() {
     const fetchReviews = async () => {
       const result = await api.getMoviesReviews(movieId);
       setReviews(result.data.results);
-      console.log(result.data.results);
+      // console.log(result.data.results);
       localStorage.setItem(
         `reviews-${movieId}`,
         JSON.stringify(result.data.results)

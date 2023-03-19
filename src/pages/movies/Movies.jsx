@@ -24,7 +24,7 @@ export default function Movies() {
     const fetchMovieByQuery = async () => {
       const result = await api.getMoviesQuery(query);
       setMovies(result.data.results);
-      console.log(result.data.results);
+      // console.log(result.data.results);
       localStorage.setItem(
         `search-${query}`,
         JSON.stringify(result.data.results)
@@ -45,7 +45,7 @@ export default function Movies() {
     const fetchMovieByQuery = async () => {
       const result = await api.getMoviesQuery(searchQuery);
       setMovies(result.data.results);
-      console.log(result.data.results);
+      // console.log(result.data.results);
       localStorage.setItem(
         `search-${searchQuery}`,
         JSON.stringify(result.data.results)

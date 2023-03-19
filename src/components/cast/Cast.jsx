@@ -19,7 +19,7 @@ export default function Cast() {
     const fetchCast = async () => {
       const result = await api.getMoviesCast(movieId);
       setCast(result.data.cast);
-      console.log(result.data.cast);
+      // console.log(result.data.cast);
       localStorage.setItem(`cast-${movieId}`, JSON.stringify(result.data.cast));
     };
     if (!localStorage.getItem(`cast-${movieId}`)) {
