@@ -15,6 +15,7 @@ export const SearchForm = styled.form`
   background-color: #fff;
   border-radius: 3px;
   border-bottom: 2px solid #fd5103;
+  margin-bottom: 40px;
   /* overflow: hidden; */
 `;
 
@@ -24,6 +25,7 @@ export const Input = styled.input`
   border: none;
   padding: 10px;
   outline: none;
+
   &:-webkit-autofill {
     box-shadow: 0 0 0 30px #fff inset !important;
   }
@@ -35,6 +37,51 @@ export const Input = styled.input`
   }
   &::placeholder {
     font: inherit;
+    font-size: 18px;
+  }
+`;
+
+export const MoviesList = styled.ul`
+  display: grid;
+  max-width: calc(100vw - 48px);
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 16px;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0;
+  margin-left: auto;
+  margin-right: auto;
+`;
+
+export const MoviesItem = styled.li`
+  /* display: flex;
+  flex-direction: column;
+  width: 100%; */
+  border-radius: 2px;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+`;
+
+export const MoviesImg = styled.img`
+  width: 100%;
+  object-fit: cover;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover {
+    transform: scale(1.03);
+    cursor: zoom-in;
+  }
+`;
+
+export const MoviesTitle = styled.p`
+  text-align: center;
+  margin-bottom: 4px;
+  color: #000;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 2;
+  letter-spacing: 0.06em;
+  @media screen and (min-width: 768px) {
+    font-weight: 600;
     font-size: 18px;
   }
 `;

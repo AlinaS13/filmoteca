@@ -47,9 +47,11 @@ export default function MovieDetails() {
           src={
             movie.poster_path
               ? `https://image.tmdb.org/t/p/w500${movie.poster_path} `
-              : `https://picsum.photos/500/300?image=358`
+              : `https://picsum.photos/600/400?image=358`
           }
           alt={movie.title}
+          width={400}
+          height={600}
         />
         <MovieDetailsWrap>
           {' '}

@@ -2,7 +2,15 @@ import { Container } from 'pages/home/Home.styled';
 import { useEffect, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import api from '../../api/api';
-import { Input, SearchForm, SearchWrap } from './Movies.styled';
+import {
+  Input,
+  MoviesImg,
+  MoviesItem,
+  MoviesList,
+  MoviesTitle,
+  SearchForm,
+  SearchWrap,
+} from './Movies.styled';
 
 export default function Movies() {
   const [query, setQuery] = useState('');
@@ -70,17 +78,27 @@ export default function Movies() {
           </button>
         </SearchForm>
       </SearchWrap>
-      <ul>
-        {movies.map(({ title, id }) => {
+      <MoviesList>
+        {movies.map(({ title, id, poster_path }) => {
           return (
-            <li key={id}>
+            <MoviesItem key={id}>
               <Link to={`${id}`} state={{ from: `/movies?${searchParams}` }}>
-                {title}{' '}
+                <MoviesImg
+                  src={
+                    poster_path
+                      ? `https://image.tmdb.org/t/p/w500${poster_path} `
+                      : `https://picsum.photos/500/300?image=358`
+                  }
+                  alt={title}
+                  width={200}
+                  height={250}
+                />
+                <MoviesTitle> {title} </MoviesTitle>
               </Link>
-            </li>
+            </MoviesItem>
           );
         })}
-      </ul>
+      </MoviesList>
     </Container>
   );
 }

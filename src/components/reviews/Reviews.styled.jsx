@@ -13,8 +13,7 @@ export const ReviewsText = styled.p`
 `;
 
 export const ReviewsMessage = styled.h2`
- text-align: center;
- margin-top:35px;
-  margin-bottom:35px;
-  }
+  text-align: center;
+  margin-top: 35px;
+  margin-bottom: 35px;
 `;

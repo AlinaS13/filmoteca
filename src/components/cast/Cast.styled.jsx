@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const CastList = styled.ul`
   display: grid;
   max-width: calc(100vw - 48px);
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   grid-gap: 16px;
   margin-top: 0;
   margin-bottom: 0;
@@ -29,8 +29,8 @@ export const CastImg = styled.img`
 `;
 export const CastTitle = styled.h2`
   text-align: center;
-  font-weight: 900;
-  font-size: 48px;
+  font-weight: 700;
+  font-size: 28px;
 `;
 
 export const CastText = styled.p`
@@ -42,7 +42,7 @@ export const CastText = styled.p`
   line-height: 2;
   letter-spacing: 0.06em;
   @media screen and (min-width: 768px) {
-    font-weight: 700;
-    font-size: 20px;
+    font-weight: 600;
+    font-size: 16px;
   }
 `;
