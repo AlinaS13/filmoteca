@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import api from '../../api/api';
+import api from '../../../api/api';
 import { ReviewsText, ReviewsMessage } from './Reviews.styled';
 
 export default function Reviews() {

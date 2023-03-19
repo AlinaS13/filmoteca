@@ -5,8 +5,8 @@ import Layout from './components/layout/Layout';
 const Home = lazy(() => import('./pages/home/Home'));
 const Movies = lazy(() => import('./pages/movies/Movies'));
 const MovieDetails = lazy(() => import('./pages/movie-details/MovieDetails'));
-const Cast = lazy(() => import('./components/cast/Cast'));
-const Reviews = lazy(() => import('./components/reviews/Reviews'));
+const Cast = lazy(() => import('./pages/movie-details/cast/Cast'));
+const Reviews = lazy(() => import('./pages/movie-details/reviews/Reviews'));
 
 export const App = () => {
   return (
@@ -18,7 +18,6 @@ export const App = () => {
           <Route path="cast" element={<Cast />} />
           <Route path="reviews" element={<Reviews />} />
         </Route>
-        <Route />
         <Route path="*" element={<Navigate to="/" />} />
       </Route>
     </Routes>
