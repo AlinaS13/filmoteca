@@ -2,6 +2,17 @@ import { Container } from 'pages/home/Home.styled';
 import { useEffect, useState } from 'react';
 import { useLocation, Link, useParams, Outlet } from 'react-router-dom';
 import api from '../../api/api';
+import {
+  MovieDetailsWrap,
+  MovieDetail,
+  MovieDetailsTitle,
+  AditionalInfoTitle,
+  AditionalInfoWrap,
+  Score,
+  Overview,
+  Genres,
+  StyledLink,
+} from './MoviesDetails.styled';
 
 export default function MovieDetails() {
   const { movieId } = useParams();
@@ -28,10 +39,10 @@ export default function MovieDetails() {
 
   return (
     <Container>
-      <button type="button">
+      <button type="button" className="button">
         <Link to={goBackBtn}>Go Back</Link>
       </button>
-      <div>
+      <MovieDetail>
         <img
           src={
             movie.poster_path
@@ -40,26 +51,33 @@ export default function MovieDetails() {
           }
           alt={movie.title}
         />
-        <h2>
-          {movie.title} ({new Date(movie.release_date).getFullYear()})
-        </h2>
-        <p>User Score: {(movie.vote_average * 10).toFixed(0)}%</p>
-        <h3>Overview</h3>
-        <p>{movie.overview}</p>
-        <h4>Genres</h4>
-        <ul>
-          {movie.genres
-            ? movie.genres.map(genres => {
-                return <li key={genres.id}>{genres.name}</li>;
-              })
-            : ''}
-        </ul>
-      </div>
-      <p>Aditional information</p>
-      <div>
-        <Link to={`/movies/${movieId}/cast`}>Cast</Link>
-        <Link to={`/movies/${movieId}/reviews`}>Review</Link>
-      </div>
+        <MovieDetailsWrap>
+          {' '}
+          <MovieDetailsTitle>
+            {movie.title} ({new Date(movie.release_date).getFullYear()})
+          </MovieDetailsTitle>
+          <Score>User Score: {(movie.vote_average * 10).toFixed(0)}%</Score>
+          <h3>Overview</h3>
+          <Overview>{movie.overview}</Overview>
+          <h4>Genres</h4>
+          <ul>
+            {movie.genres
+              ? movie.genres.map(genres => {
+                  return (
+                    <li key={genres.id}>
+                      <Genres>{genres.name}</Genres>
+                    </li>
+                  );
+                })
+              : ''}
+          </ul>
+        </MovieDetailsWrap>
+      </MovieDetail>
+      <AditionalInfoTitle>Aditional information</AditionalInfoTitle>
+      <AditionalInfoWrap>
+        <StyledLink to={`/movies/${movieId}/cast`}>Cast</StyledLink>
+        <StyledLink to={`/movies/${movieId}/reviews`}>Review</StyledLink>
+      </AditionalInfoWrap>
       <Outlet />
     </Container>
   );

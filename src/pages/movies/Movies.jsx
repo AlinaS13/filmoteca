@@ -2,6 +2,7 @@ import { Container } from 'pages/home/Home.styled';
 import { useEffect, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import api from '../../api/api';
+import { Input, SearchForm, SearchWrap } from './Movies.styled';
 
 export default function Movies() {
   const [query, setQuery] = useState('');
@@ -56,17 +57,19 @@ export default function Movies() {
 
   return (
     <Container>
-      <div>
-        <form onSubmit={handleSubmit}>
-          <input
+      <SearchWrap>
+        <SearchForm onSubmit={handleSubmit}>
+          <Input
             name="searchfield"
             type="text"
             autoComplete="off"
             placeholder="Search movies"
           />
-          <button type="submit">Search</button>
-        </form>
-      </div>
+          <button type="submit" className="button">
+            Search
+          </button>
+        </SearchForm>
+      </SearchWrap>
       <ul>
         {movies.map(({ title, id }) => {
           return (

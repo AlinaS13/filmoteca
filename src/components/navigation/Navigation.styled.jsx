@@ -10,7 +10,7 @@ export const NavBar = styled.header`
   padding: 20px;
   box-sizing: border-box;
   box-shadow: 1px 1px 5px 2px gray;
-  background-color: rgb(23 83 90); ;
+  background-color: rgb(23 83 90);
 `;
 
 export const StyleLink = styled(NavLink)`

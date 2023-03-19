@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
+
 export const Container = styled.div`
   margin: 0 auto;
   padding-left: 20px;
@@ -27,64 +28,55 @@ export const MainTitle = styled.h1`
 `;
 
 export const MoviesList = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  margin-top: 60px;
-  margin-bottom: 24px;
-  justify-content: center;
-  /* @include tablet {
-    display: grid;
-    grid-template-columns: repeat(2, 335px);
-    gap: 32px;
-    margin-bottom: 24px;
-  }
-  @include desktop {
-    display: grid;
-    grid-template-columns: repeat(3, 395px);
-    gap: 32px;
-  } */
+  display: grid;
+  max-width: calc(100vw - 48px);
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-gap: 16px;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0;
+  margin-left: auto;
+  margin-right: auto;
 `;
 
 export const MoviesItem = styled.li`
-  flex-direction: column;
-  justify-content: space-between;
-
-  align-items: center;
-  border-radius: 4px;
-  border: 1px solid #fd5103;
+  border-radius: 2px;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
 `;
 
 export const LinkStyled = styled(NavLink)`
-  height: 100%;
-  display: flex;
-  flex-direction: column;
+  display: block;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
-  justify-content: space-between;
-  overflow: hidden;
+  &:hover,
+  &:focus {
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+      1px 4px 6px rgba(0, 0, 0, 0.16);
+  }
 `;
 
 export const MoviesImg = styled.img`
-  /* width: 300px;
-  display: block; */
+  width: 100%;
+  object-fit: cover;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover {
+    transform: scale(1.03);
+    cursor: zoom-in;
+  }
 `;
 
 export const MoviesTitle = styled.p`
-  display: block;
-  margin-top: 48px;
-  margin-bottom: 20px;
-  font-family: 'Roboto', sans-serif;
-  @include font(900, 26px, 42px, 1.5);
-  color: var(--dark-text-color);
-  @include tablet {
-    margin-top: 20px;
-    margin-bottom: 25px;
-    @include font(900, 28px, 33px, 1.5);
-  }
-  @include desktop {
-    margin-bottom: 27px;
-    margin-top: 0px;
-
-    @include font(900, 29px, 38px, 1.5);
+  text-align: center;
+  margin-bottom: 4px;
+  color: #000;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 2;
+  letter-spacing: 0.06em;
+  @media screen and (min-width: 768px) {
+    font-weight: 700;
+    font-size: 20px;
   }
 `;

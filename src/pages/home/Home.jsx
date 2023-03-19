@@ -41,10 +41,9 @@ export default function Home() {
                 <MoviesItem key={id}>
                   <LinkStyled to={`movies/${id}`}>
                     <MoviesImg
-                      src={`https://image.tmdb.org/t/p/w200${poster_path} `}
+                      src={`https://image.tmdb.org/t/p/w500${poster_path} `}
                       alt={title}
                       width={200}
-                      height={300}
                     />
                     <MoviesTitle>{title}</MoviesTitle>
                   </LinkStyled>
