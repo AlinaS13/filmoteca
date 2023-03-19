@@ -67,7 +67,7 @@ export const MoviesImg = styled.img`
   }
 `;
 
-export const MoviesTitle = styled.p`
+export const MoviesTitle = styled.h2`
   text-align: center;
   margin-bottom: 4px;
   color: #000;
@@ -75,6 +75,7 @@ export const MoviesTitle = styled.p`
   font-size: 12px;
   line-height: 2;
   letter-spacing: 0.06em;
+  min-height: 100px;
   @media screen and (min-width: 768px) {
     font-weight: 700;
     font-size: 20px;

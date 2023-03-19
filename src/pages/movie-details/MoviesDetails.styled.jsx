@@ -13,6 +13,8 @@ export const MovieDetailsWrap = styled.div`
 `;
 
 export const MovieDetailsTitle = styled.h2`
+  height: 100px;
+  min-height: 100px;
   font-weight: 900;
   font-size: 48px;
 `;

@@ -1,6 +1,6 @@
 import { Container } from 'pages/home/Home.styled';
 import { useEffect, useState } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { NavLink, useSearchParams } from 'react-router-dom';
 import api from '../../api/api';
 import {
   Input,
@@ -82,7 +82,7 @@ export default function Movies() {
         {movies.map(({ title, id, poster_path }) => {
           return (
             <MoviesItem key={id}>
-              <Link to={`${id}`} state={{ from: `/movies?${searchParams}` }}>
+              <NavLink to={`${id}`} state={{ from: `/movies?${searchParams}` }}>
                 <MoviesImg
                   src={
                     poster_path
@@ -94,7 +94,7 @@ export default function Movies() {
                   height={250}
                 />
                 <MoviesTitle> {title} </MoviesTitle>
-              </Link>
+              </NavLink>
             </MoviesItem>
           );
         })}
