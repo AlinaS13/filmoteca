@@ -14,7 +14,7 @@ import {
 
 export default function Home() {
   const [moviesDay, setMoviesDay] = useState(
-    JSON.parse(localStorage.getItem('movies-day')) ?? []
+    JSON.parse(sessionStorage.getItem('movies-day')) ?? []
   );
 
   useEffect(() => {
@@ -22,9 +22,9 @@ export default function Home() {
       const result = await api.getMoviesDay();
       setMoviesDay(result.data.results);
       // console.log(result.data.results);
-      localStorage.setItem('movies-day', JSON.stringify(result.data.results));
+      sessionStorage.setItem('movies-day', JSON.stringify(result.data.results));
     };
-    if (!localStorage.getItem('movies-day')) {
+    if (!sessionStorage.getItem('movies-day')) {
       fetchMovies();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

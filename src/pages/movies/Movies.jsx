@@ -17,7 +17,7 @@ export default function Movies() {
   const [searchParams, setSearchParams] = useSearchParams();
   const searchQuery = searchParams.get('query');
   const [movies, setMovies] = useState(
-    JSON.parse(sessionStorage.getItem(`search-${searchQuery}`)) ?? []
+    JSON.parse(localStorage.getItem(`search-${searchQuery}`)) ?? []
   );
 
   useEffect(() => {
@@ -25,15 +25,15 @@ export default function Movies() {
       const result = await api.getMoviesQuery(query);
       setMovies(result.data.results);
       // console.log(result.data.results);
-      sessionStorage.setItem(
+      localStorage.setItem(
         `search-${query}`,
         JSON.stringify(result.data.results)
       );
     };
 
     if (query) {
-      if (sessionStorage.getItem(`search-${query}`)) {
-        setMovies(JSON.parse(sessionStorage.getItem(`search-${query}`)));
+      if (localStorage.getItem(`search-${query}`)) {
+        setMovies(JSON.parse(localStorage.getItem(`search-${query}`)));
       } else {
         fetchMovieByQuery();
       }
@@ -46,12 +46,12 @@ export default function Movies() {
       const result = await api.getMoviesQuery(searchQuery);
       setMovies(result.data.results);
       // console.log(result.data.results);
-      sessionStorage.setItem(
+      localStorage.setItem(
         `search-${searchQuery}`,
         JSON.stringify(result.data.results)
       );
     };
-    if (searchQuery && !sessionStorage.getItem(`search-${searchQuery}`)) {
+    if (searchQuery && !localStorage.getItem(`search-${searchQuery}`)) {
       fetchMovieByQuery();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
