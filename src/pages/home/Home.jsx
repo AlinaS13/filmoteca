@@ -44,6 +44,7 @@ export default function Home() {
                       src={`https://image.tmdb.org/t/p/w500${poster_path} `}
                       alt={title}
                       width={200}
+                      height={400}
                     />
                     <MoviesTitle>{title}</MoviesTitle>
                   </LinkStyled>

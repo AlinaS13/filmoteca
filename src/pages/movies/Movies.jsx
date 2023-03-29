@@ -91,7 +91,7 @@ export default function Movies() {
                   }
                   alt={title}
                   width={200}
-                  height={250}
+                  height={350}
                 />
                 <MoviesTitle> {title} </MoviesTitle>
               </NavLink>
